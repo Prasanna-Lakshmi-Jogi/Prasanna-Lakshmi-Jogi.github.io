@@ -18,6 +18,10 @@ body {
     margin: 0 auto;    /* Centers everything */
     padding: 40px 0;
 }
+#full-page{
+        font-size: 32px; /* Bigger Title */
+    font-weight: 700 bold;
+}
 
 /* --- Intro Section --- */
 #intro {
@@ -27,10 +31,11 @@ body {
     margin: 0 auto; /* Centers text block */
 }
 
+
 #intro h2 {
-    font-size: 2.2rem; /* Bigger Title */
+    font-size: 32px; /* Bigger Title */
     font-weight: 700 bold;
-    color: #111;
+    color: #333333;
     margin-bottom: 15px;
 }
 
@@ -272,4 +277,5 @@ footer {
   font-weight: bold;
 
 }
+
 
