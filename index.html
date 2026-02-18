@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="home_page.css">
+</head>
+<body>
+<div id="header-placeholder"></div>
+    <div id="main_page">
+
+    <section id="home" class="hero">
+        <h2>Hi, I'm Prasanna Lakshmi</h2>
+        <p>I am a Web Development Intern at Kisanwala company. I focus on building clean and functional websites.</p>
+        <a href="#projects" class="btn-main">View My Work</a>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="card">
+                <img src="images/page1.png" alt="Artisan Coffee House">
+                <div class="card-content">
+                    <h3>Artisan Coffee House</h3>
+                    <p>A design-focused project built using Elementor, focusing on branding, visual hierarchy, and user experience. It features a responsive menu layout and a clean, modern aesthetic tailored for the food and beverage industry.</p>
+                    <button onclick="window.open('http://lacking-hammer.localsite.io', '_blank')">View Site</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/page2.png" alt="Sparky's Adoption Journey">
+                <div class="card-content">
+                    <h3>Sparky's Adoption Journey</h3>
+                    <p>A sophisticated React application developed using Lovable AI. I engineered a custom 'Treat Counter' logic and interactive photo galleries, showcasing the ability to prompt, refine, and deploy AI-generated code into a polished, user-ready product</p>
+                    <button onclick="window.open('https://sparky-buddy-finder.lovable.app', '_blank')">View Site</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/page3.png" alt="WordPress Learning">
+                <div class="card-content">
+                    <h3>WordPress Learning</h3>
+                    <p>A deep dive into the WordPress core, where I mastered dashboard management, site architecture, and theme customization. This project demonstrates my ability to build the structural foundation of a professional website from the ground up.</p>
+                    <button onclick="window.open('http://dashing-flower.localsite.io', '_blank')">View Site</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience-section">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="card-content">
+                <h3>Engineering Intern</h3>
+                <p><strong>Kisanwala</strong> | <em>3-Month Internship (January 2026 – Present)</em></p>
+                <p><strong>Custom UI Development</strong>: Designed and deployed responsive web layouts using Elementor, focusing on creating intuitive user interfaces that simplified complex AgTech data for end-users.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="education-section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            <div class="card-content">
+                <h3>B.Tech | ECE</h3>
+                <p>(2022 – 2026)</p>
+                <p>International School of Technology and Sciences</p>
+            </div>
+            <div class="card-content">
+                <h3>Intermediate | MPC</h3>
+                <p>(2020 – 2022)</p>
+                <p>A.A(U.K)Junior College</p>
+            </div>
+            <div class="card-content">
+                <h3>S.S.C</h3>
+                <p>(2019 – 2020)</p>
+                <p>Z.P.P.H School, Mamuduru</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-form">
+            <p>Fill out the form below and I will contact you as soon as possible</p>
+            <form>
+                <input type="text" placeholder="Enter your Name" required>
+                <input type="email" placeholder="Enter your Email" required>
+                <textarea placeholder="Message here ...." rows="4"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="contact-info-section">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-phone-alt flip-icon"></i> <b>Phone</b> 9391918938</p>
+            <p><i class="fas fa-envelope"></i><b> Email</b> prasannalakshmijogi6@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i><b> Address</b> Hyderabad</p>
+        </div>
+    </section>
+
+    <section class="social-media-section">
+        <h2 class="section-title">My Social Media Accounts</h2>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/prasanna-lakshmi-jogi-64a7a72b2/" target="_blank"><i class="fab fa-linkedin fa-2x"></i> LinkedIn</a>
+            <a href="https://github.com/Prasanna-Lakshmi-Jogi" target="_blank"><i class="fab fa-github fa-2x"></i> GitHub</a>
+        </div>
+    </section>
+    </div>
+
+    <div id="footer-placeholder"></div>
+<script>
+    // 1. The Loader Function
+    async function includeHTML(id, file) {
+        try {
+            const response = await fetch(file);
+            if (response.ok) {
+                const text = await response.text();
+                document.getElementById(id).innerHTML = text;
+                
+                // 2. RUN THIS ONLY AFTER HEADER IS LOADED
+                if (id === 'header-placeholder') {
+                    highlightActiveLink();
+                }
+            }
+        } catch (err) {
+            console.error("Could not load " + file, err);
+        }
+    }
+
+    // 3. The "Active Link" Logic
+    function highlightActiveLink() {
+        // Get current page filename (e.g., "home_page.html")
+        const currentPage = window.location.pathname.split("/").pop();
+        
+        // Find all links in the nav
+        const links = document.querySelectorAll('.nav-links a');
+
+        links.forEach(link => {
+            // Get the href of the link (e.g., "home_page.html")
+            const linkPage = link.getAttribute('href');
+
+            // Check if they match
+            if (linkPage === currentPage || (currentPage === "" && linkPage === "home_page.html")) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Load the components
+    includeHTML('header-placeholder', 'header.html');
+    includeHTML('footer-placeholder', 'footer.html');
+</script>
+</body>
+</html>

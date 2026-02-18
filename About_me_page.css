@@ -1,0 +1,273 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* --- MAIN WRAPPER: Controls width of EVERYTHING --- */
+#full-page {
+    max-width: 1400px; /* INCREASED: Wider layout */
+    width: 90%;        /* Keeps some margin on very small screens */
+    margin: 0 auto;    /* Centers everything */
+    padding: 40px 0;
+}
+
+/* --- Intro Section --- */
+#intro {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto; /* Centers text block */
+}
+
+#intro h2 {
+    font-size: 2.2rem; /* Bigger Title */
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+#intro p {
+    font-size: 1.1rem; /* Bigger Text */
+    line-height: 1.7;
+    color: #555;
+}
+
+/* --- Skills Section --- */
+#skills {
+    margin-top: 20px;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: #000;
+}
+
+/* --- 3-Column Layout --- */
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px; /* More space between columns */
+}
+
+/* COLUMN STYLING */
+.column-container {
+    flex: 1; /* Forces equal width */
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.column-heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* CARD STYLING */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* PILL BUTTON */
+.pill-badge {
+    background-color: #2e6a4f;
+    color: white;
+    padding: 12px 28px; /* Slightly bigger pill */
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* DESCRIPTION TEXT */
+.description-text {
+    text-align: center; /* Center align looks better for this layout */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    width: 100%;
+}
+
+/* PROGRESS BAR */
+.progress-wrapper {
+    width: 75%;
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-fill {
+background-color: #4b7f6a;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10; /* Removed padding */
+    
+    /* CHANGED: Hide text inside bar because it's too thin now */
+    font-size: 12px; 
+    color: white;
+}
+
+/* Utility Widths */
+.w-85 { width: 85%; }
+.w-75 { width: 75%; }
+.w-50 { width: 50%; }
+.w-80 { width: 80%; }
+
+
+/* --- WORKFLOW SECTION (The bottom part) --- */
+.workflow-section {
+    background-color: #fff;
+    margin-top: 80px; /* Space from skills section */
+    padding: 60px 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    /* Note: It is now INSIDE #full-page, so it won't stretch full screen */
+}
+
+.workflow-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.step-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.step-icon svg {
+    width: 60px;
+    height: 60px;
+    fill: #9ca3af;
+    margin-bottom: 20px;
+}
+
+.step-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.step-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* --- RESPONSIVE (Mobile) --- */
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column-container {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.bridge-tag{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5%;
+    max-width: 1400px; 
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+.bridge-tag h2 {
+    font-size: 2.2rem; /* Bigger Title */
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.bridge-tag p {
+    font-size: 1.1rem; /* Bigger Text */
+    line-height: 1.7;
+    color: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 10%;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 16px;
+    
+}
+.logo a{
+    text-decoration: none;
+      color: #1A1A1B;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+.nav-links a.active {
+  color: blue;
+  font-weight: bold;
+}
