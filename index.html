@@ -135,18 +135,18 @@
 
     // 3. The "Active Link" Logic
     function highlightActiveLink() {
-        // Get current page filename (e.g., "home_page.html")
+        // Get current page filename (e.g., "index.html")
         const currentPage = window.location.pathname.split("/").pop();
         
         // Find all links in the nav
         const links = document.querySelectorAll('.nav-links a');
 
         links.forEach(link => {
-            // Get the href of the link (e.g., "home_page.html")
+            // Get the href of the link (e.g., "index.html")
             const linkPage = link.getAttribute('href');
 
             // Check if they match
-            if (linkPage === currentPage || (currentPage === "" && linkPage === "home_page.html")) {
+            if (linkPage === currentPage || (currentPage === "" && linkPage === "index.html")) {
                 link.classList.add('active');
             }
         });
@@ -158,6 +158,7 @@
 </script>
 </body>
 </html>
+
 
 
 
