@@ -225,6 +225,16 @@ p {
     font-weight: bold;
 }
 
+.contact-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#formStatus {
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+
 /* Contact Info Section */
 .contact-info-section {
     padding: 80px 10%;

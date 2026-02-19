@@ -86,11 +86,13 @@
         <h2 class="section-title">Get in Touch</h2>
         <div class="contact-form">
             <p>Fill out the form below and I will contact you as soon as possible</p>
-            <form action="mailto:prasannalakshmijogi6@gmail.com" method="post" enctype="text/plain" onsubmit="return handleContactSubmit(this)">
-                <input type="text" name="Name" placeholder="Enter your Name" required>
-                <input type="email" name="Email" placeholder="Enter your Email" required>
-                <textarea name="Message" placeholder="Message here ...." rows="4" required></textarea>
-                <button type="submit">Send</button>
+            <form id="contact-form" action="https://formspree.io/f/your_form_id" method="POST" novalidate>
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your Full Name" required minlength="2" maxlength="80" autocomplete="name">
+                <input type="email" id="email" name="email" placeholder="Enter your Email" required maxlength="120" autocomplete="email">
+                <textarea id="message" name="message" placeholder="Message here ...." rows="4" required minlength="10" maxlength="2000"></textarea>
+                <button type="submit" id="submitBtn">Send</button>
+                <p id="formStatus" role="status" aria-live="polite"></p>
             </form>
         </div>
     </section>
@@ -152,10 +154,46 @@
         });
     }
 
-    function handleContactSubmit(form) {
-        // Let mailto submit first, then clear the form fields.
-        setTimeout(() => form.reset(), 300);
-        return true;
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+            formStatus.textContent = '';
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { Accept: 'application/json' }
+                });
+
+                if (response.ok) {
+                    contactForm.reset();
+                    formStatus.textContent = 'Thanks! Your message has been sent successfully.';
+                    formStatus.style.color = '#0f766e';
+                } else {
+                    formStatus.textContent = 'Sorry, there was a problem sending your message. Please try again.';
+                    formStatus.style.color = '#b91c1c';
+                }
+            } catch (error) {
+                formStatus.textContent = 'Network error. Please check your connection and try again.';
+                formStatus.style.color = '#b91c1c';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send';
+            }
+        });
     }
 
     // Load the components
