@@ -9,6 +9,7 @@
 body {
     background-color: #f9f9f9;
     color: #333;
+    overflow-x: hidden;
 }
 
 /* --- MAIN WRAPPER: Controls width of EVERYTHING --- */
@@ -19,8 +20,8 @@ body {
     padding: 40px 0;
 }
 #full-page h2{
-        font-size: 32px; /* Bigger Title */
-    font-weight: 700 bold;
+    font-size: clamp(1.75rem, 2.5vw, 2rem);
+    font-weight: 700;
     color: #333333;
 }
 
@@ -34,8 +35,8 @@ body {
 
 
 #intro h2 {
-    font-size: 32px; /* Bigger Title */
-    font-weight: 700 bold;
+    font-size: clamp(1.75rem, 2.5vw, 2rem);
+    font-weight: 700;
     color: #333333;
     margin-bottom: 15px;
 }
@@ -61,19 +62,17 @@ body {
 
 /* --- 3-Column Layout --- */
 .main-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: flex-start;
-    gap: 50px; /* More space between columns */
+    gap: 40px;
 }
 
 /* COLUMN STYLING */
 .column-container {
-    flex: 1; /* Forces equal width */
     display: flex;
     flex-direction: column;
-    gap: 70px;
+    gap: 40px;
 }
 
 .column-heading {
@@ -115,7 +114,8 @@ body {
 
 /* PROGRESS BAR */
 .progress-wrapper {
-    width: 75%;
+    width: 100%;
+    max-width: 320px;
     background-color: #e0e0e0;
     height: 20px;
     border-radius: 4px;
@@ -129,7 +129,7 @@ background-color: #4b7f6a;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 10; /* Removed padding */
+    padding-right: 10px;
     
     /* CHANGED: Hide text inside bar because it's too thin now */
     font-size: 12px; 
@@ -161,9 +161,9 @@ background-color: #4b7f6a;
 }
 
 .steps-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
 }
 
 .step-card {
@@ -193,21 +193,65 @@ background-color: #4b7f6a;
     line-height: 1.5;
 }
 
-/* --- RESPONSIVE (Mobile) --- */
-@media (max-width: 900px) {
+/* --- RESPONSIVE (Tablet + Mobile) --- */
+@media (max-width: 1100px) {
     .main-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .column-container {
-        width: 100%;
-        max-width: 500px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .steps-container {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 780px) {
+    #full-page {
+        width: 94%;
+        padding: 24px 0;
+    }
+
+    #intro {
+        padding: 20px 10px;
+    }
+
+    .main-title {
+        margin-bottom: 30px;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .column-container {
+        gap: 28px;
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .workflow-section {
+        margin-top: 40px;
+        padding: 32px 18px;
+    }
+
+    .bridge-tag {
+        width: 94%;
+        padding: 8% 2%;
+    }
+
+    .bridge-tag h2 {
+        font-size: 1.8rem;
+    }
+
+    .bridge-tag p {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 28px 6%;
     }
 }
 
@@ -277,6 +321,35 @@ footer {
   color: blue;
   font-weight: bold;
 
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 1rem 6%;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 701px) {
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px 20px;
+    }
 }
 
 
