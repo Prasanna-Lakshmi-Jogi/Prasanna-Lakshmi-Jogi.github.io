@@ -67,11 +67,15 @@ p {
 
 .logo {
     font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
     
 }
 .logo a{
     text-decoration: none;
       color: #1A1A1B;
+      font-weight: inherit;
+      letter-spacing: inherit;
 }
 
 .nav-links a {
