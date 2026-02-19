@@ -202,6 +202,7 @@ p {
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .contact-form input, .contact-form textarea {
@@ -210,6 +211,7 @@ p {
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1rem;
 }
 
 .contact-form button {
@@ -364,8 +366,30 @@ footer {
         margin-bottom: 30px;
     }
 
+    .contact-form {
+        max-width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        padding: 11px;
+    }
+
     footer {
         padding: 28px 6%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form p {
+        font-size: 0.95rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        font-size: 0.95rem;
     }
 }
 #main_page {

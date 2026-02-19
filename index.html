@@ -86,10 +86,10 @@
         <h2 class="section-title">Get in Touch</h2>
         <div class="contact-form">
             <p>Fill out the form below and I will contact you as soon as possible</p>
-            <form>
-                <input type="text" placeholder="Enter your Name" required>
-                <input type="email" placeholder="Enter your Email" required>
-                <textarea placeholder="Message here ...." rows="4"></textarea>
+            <form action="mailto:prasannalakshmijogi6@gmail.com" method="post" enctype="text/plain" onsubmit="return handleContactSubmit(this)">
+                <input type="text" name="Name" placeholder="Enter your Name" required>
+                <input type="email" name="Email" placeholder="Enter your Email" required>
+                <textarea name="Message" placeholder="Message here ...." rows="4" required></textarea>
                 <button type="submit">Send</button>
             </form>
         </div>
@@ -150,6 +150,12 @@
                 link.classList.add('active');
             }
         });
+    }
+
+    function handleContactSubmit(form) {
+        // Let mailto submit first, then clear the form fields.
+        setTimeout(() => form.reset(), 300);
+        return true;
     }
 
     // Load the components
