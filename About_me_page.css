@@ -12,12 +12,18 @@ body {
     overflow-x: hidden;
 }
 
+:root {
+    --content-max: 1120px;
+    --content-gutter: clamp(16px, 4vw, 28px);
+    --page-inline: max(var(--content-gutter), calc((100vw - var(--content-max)) / 2));
+}
+
 /* --- MAIN WRAPPER: Controls width of EVERYTHING --- */
 #full-page {
-    max-width: 1400px; /* INCREASED: Wider layout */
-    width: 90%;        /* Keeps some margin on very small screens */
-    margin: 0 auto;    /* Centers everything */
-    padding: 40px 0;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 40px;
 }
 #full-page h2{
     font-size: clamp(1.75rem, 2.5vw, 2rem);
@@ -25,12 +31,17 @@ body {
     color: #333333;
 }
 
+#full-page section {
+    text-align: center;
+}
+
 /* --- Intro Section --- */
 #intro {
     text-align: center;
     padding: 48px 20px 32px;
-    max-width: 900px;
-    margin: 0 auto; /* Centers text block */
+    width:100%;
+    margin: 0 auto;
+    background: #ffffff;
 }
 
 
@@ -48,9 +59,15 @@ body {
     color: #555;
 }
 
+:is(#intro, #skills, #workflow-section, .workflow-section, #bridge-tag, .bridge-tag) :is(h2, h3, p) {
+    text-align: center;
+}
+
 /* --- Skills Section --- */
 #skills {
-    margin-top: 20px;
+    margin-top: 0px;
+    padding: 48px 20px 32px;
+    background: #f3f4f6;
 }
 
 .main-title {
@@ -60,6 +77,21 @@ body {
     margin-bottom: 52px;
     color: #000;
     line-height: 1.2;
+}
+
+#intro,
+#skills,
+#workflow-section,
+#bridge-tag {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    margin-top: 0;
+    padding: 80px 0;
+}
+
+#workflow-section + #bridge-tag {
+    margin-top: 0;
 }
 
 /* --- 3-Column Layout --- */
@@ -161,10 +193,9 @@ background-color: #4b7f6a;
 
 
 /* --- WORKFLOW SECTION (The bottom part) --- */
-.workflow-section {
-    background-color: #fff;
-    margin-top: 80px; /* Space from skills section */
-    padding: 60px 40px;
+#workflow-section {
+    background-color: #ffffff;
+    margin-top: 0; /* Space from skills section */
     border: 1px solid #e0e0e0;
     border-radius: 12px;
     /* Note: It is now INSIDE #full-page, so it won't stretch full screen */
@@ -223,12 +254,13 @@ background-color: #4b7f6a;
 
 @media (max-width: 780px) {
     #full-page {
-        width: 94%;
+        width: 100%;
         padding: 24px 0;
     }
 
-    #intro {
-        padding: 20px 10px;
+    #intro,
+    #skills {
+        padding: 80px 0;
     }
 
     .main-title {
@@ -262,47 +294,42 @@ background-color: #4b7f6a;
         gap: 24px;
     }
 
-    .workflow-section {
-        margin-top: 40px;
-        padding: 32px 18px;
+    #workflow-section,
+    #bridge-tag {
+        margin-top: 0;
+        padding: 80px 0;
     }
 
-    .bridge-tag {
-        width: 94%;
-        padding: 8% 2%;
-    }
-
-    .bridge-tag h2 {
+    #bridge-tag h2 {
         font-size: 1.8rem;
     }
 
-    .bridge-tag p {
+    #bridge-tag p {
         font-size: 1rem;
     }
 
     footer {
-        padding: 28px 6%;
+        padding: 28px var(--page-inline);
     }
 }
 
-.bridge-tag{
+#bridge-tag{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 5%;
-    max-width: 1400px; 
-    width: 90%;
+    max-width: none;
     margin: 0 auto;
     text-align: center;
+    background: #f3f4f6;
 }
-.bridge-tag h2 {
+#bridge-tag h2 {
     font-size: 2.2rem; /* Bigger Title */
     font-weight: 800;
     color: #111;
     margin-bottom: 15px;
 }
 
-.bridge-tag p {
+#bridge-tag p {
     font-size: 1.1rem; /* Bigger Text */
     line-height: 1.7;
     color: #555;
@@ -310,7 +337,7 @@ background-color: #4b7f6a;
 
 footer {
     text-align: center;
-    padding: 40px 10%;
+    padding: 40px var(--page-inline);
     font-size: 0.9rem;
     color: #888;
 }
@@ -319,7 +346,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 10%;
+    padding: 1.5rem var(--page-inline);
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
@@ -362,7 +389,7 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-        padding: 1rem 6%;
+        padding: 1rem var(--page-inline);
     }
 
     .nav-links {
@@ -385,6 +412,3 @@ footer {
         gap: 10px 20px;
     }
 }
-
-
-
