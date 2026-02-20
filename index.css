@@ -39,6 +39,7 @@ p {
 /* Button Styles */
 .btn-main,
 .card-content button,
+.card-content .project-link,
 .contact-form button {
     background: #1A1A1B;
     color: #F8F9FA;
@@ -54,6 +55,7 @@ p {
 
 .btn-main:hover,
 .card-content button:hover,
+.card-content .project-link:hover,
 .contact-form button:hover {
     transform: scale(1.05);
 }
@@ -66,8 +68,10 @@ p {
     padding: 1.5rem var(--page-inline);
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
 }
 
@@ -205,6 +209,17 @@ p {
 
 .card-content button {
     display: block;
+    margin: 20px auto 0;
+    padding: 0.5rem 1.5rem;
+    color: #F8F9FA;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #1A1A1B;
+}
+
+.card-content .project-link {
+    display: block;
+    width: max-content;
     margin: 20px auto 0;
     padding: 0.5rem 1.5rem;
     color: #F8F9FA;
@@ -464,3 +479,4 @@ footer {
   color: blue;
   font-weight: bold;
 }
+
