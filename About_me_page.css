@@ -24,6 +24,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0 0 40px;
+    text-align: center;
 }
 #full-page h2{
     font-size: clamp(1.75rem, 2.5vw, 2rem);
@@ -410,5 +411,35 @@ footer {
         flex-wrap: wrap;
         justify-content: flex-end;
         gap: 10px 20px;
+    }
+}
+
+/* Home-consistent layout system for About page */
+#full-page > section {
+    width: 100%;
+    margin: 0;
+    padding: 80px 0;
+}
+
+#intro > h2,
+#intro > p,
+#skills > .main-title,
+#skills > .main-container,
+#workflow-section > .workflow-title,
+#workflow-section > .steps-container,
+#bridge-tag > h2,
+#bridge-tag > p {
+    width: min(var(--content-max), calc(100% - (var(--content-gutter) * 2)));
+    margin-inline: auto;
+}
+
+#intro > p,
+#bridge-tag > p {
+    max-width: 700px;
+}
+
+@media (max-width: 780px) {
+    #full-page > section {
+        padding: 56px 0;
     }
 }

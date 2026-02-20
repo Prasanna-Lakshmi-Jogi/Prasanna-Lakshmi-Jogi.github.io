@@ -116,6 +116,11 @@ p {
     margin: 0 auto 2rem;
 }
 
+.hero .btn-main {
+    width: auto;
+    max-width: max-content;
+}
+
 /* Projects Grid */
 .projects-section {
     padding: 80px 0;
@@ -205,6 +210,7 @@ p {
     color: #F8F9FA;
     text-decoration: none;
     font-weight: bold;
+    background-color: #1A1A1B;
 }
 
 /* Contact Form Section */
@@ -221,7 +227,10 @@ p {
 }
 
 .contact-form input, .contact-form textarea {
-    width: 100%;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -230,8 +239,8 @@ p {
 }
 
 .contact-form button {
-    width: 100%;
-    background: #2563eb;
+    width: 20%;
+    background: #1A1A1B;
     color: white;
     padding: 12px;
     border: none;
@@ -445,7 +454,7 @@ footer {
 }
 
 #main_page > section:first-child {
-    padding-top: 0;
+    padding-top: 80px;
 }
 .flip-icon {
     display: inline-block;   
