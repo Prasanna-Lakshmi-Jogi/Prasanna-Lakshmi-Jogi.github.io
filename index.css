@@ -68,7 +68,7 @@ p {
     padding: 1.5rem var(--page-inline);
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -103,10 +103,11 @@ p {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 100px 0;
+    padding: 80px 0;
     background: white;
 }
 
+.hero h1,
 .hero h2 {
     font-size: clamp(1.8rem, 3vw, 2.25rem);
     font-weight: 700;
@@ -386,10 +387,6 @@ footer {
 
     .nav-links a {
         margin-left: 0;
-    }
-
-    .hero {
-        padding: 70px 0;
     }
 
     .hero p {
