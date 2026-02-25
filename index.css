@@ -9,6 +9,8 @@
     --content-max: 1120px;
     --content-gutter: clamp(16px, 4vw, 28px);
     --page-inline: max(var(--content-gutter), calc((100vw - var(--content-max)) / 2));
+     --heading-color: #000000;
+    --paragraph-color: #7A7A7A;
 }
 
 body {
@@ -20,6 +22,12 @@ body {
     overflow-x: hidden;
 }
 
+/* Typography */
+h2, h3 {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
 h1 {
     font-size: 28px;
 }
@@ -29,11 +37,12 @@ h2 {
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 p {
     font-size: 16px;
+    color: var(--paragraph-color);
 }
 
 /* Button Styles */
@@ -107,16 +116,13 @@ p {
     background: white;
 }
 
-.hero h1,
-.hero h2 {
-    font-size: clamp(1.8rem, 3vw, 2.25rem);
+.hero h1{
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
+
 .hero p {
-    font-size: 1.2rem;
-    color: #666;
     max-width: 700px;
     margin: 0 auto 2rem;
 }
