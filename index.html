@@ -33,11 +33,11 @@
                 <div class="card-content">
                     <h3>Artisan Coffee House</h3>
                     <p>A design-focused project built using Elementor, focusing on branding, visual hierarchy, and user experience. It features a responsive menu layout and a clean, modern aesthetic tailored for the food and beverage industry.</p>
-                    <a href="http://lacking-hammer.localsite.io" target="_blank" rel="noopener noreferrer" class="project-link">View Site</a>
+                    <a href="https://prasanna-lakshmi-jogi.github.io/artisan-coffee/" target="_blank" rel="noopener noreferrer" class="project-link">View Site</a>
                 </div>
             </div>
             <div class="card">
-                <img src="page2.png" alt="Sparky's Adoption Journey">
+                <img src="page3.png" alt="Sparky's Adoption Journey">
                 <div class="card-content">
                     <h3>Sparky's Adoption Journey</h3>
                     <p>A sophisticated React application developed using Lovable AI. I engineered a custom 'Treat Counter' logic and interactive photo galleries, showcasing the ability to prompt, refine, and deploy AI-generated code into a polished, user-ready product</p>
@@ -45,11 +45,11 @@
                 </div>
             </div>
             <div class="card">
-                <img src="page3.png" alt="WordPress Learning">
+                <img src="page2.png" alt="WordPress Learning">
                 <div class="card-content">
                     <h3>WordPress Learning</h3>
                     <p>A deep dive into the WordPress core, where I mastered dashboard management, site architecture, and theme customization. This project demonstrates my ability to build the structural foundation of a professional website from the ground up.</p>
-                    <a href="http://dashing-flower.localsite.io" target="_blank" rel="noopener noreferrer" class="project-link">View Site</a>
+                    <a href="https://prasanna-lakshmi-jogi.github.io/wordpress-learning/" target="_blank" rel="noopener noreferrer" class="project-link">View Site</a>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
         <h2 class="section-title">Get in Touch</h2>
         <div class="contact-form">
             <p>Fill out the form below and I will contact you as soon as possible</p>
-<form id="contact-form" action="mailto:prasannalakshmijogi6@gmail.com?subject=Portfolio Contact" 
+<form id="contact-form" action="https://formspree.io/f/mzdaovog" 
       method="POST" 
       enctype="text/plain"  autocomplete="off">
                 <input type="text" id="fullName" name="fullName" placeholder="Enter your Full Name" required minlength="2" maxlength="80" autocomplete="off">
@@ -209,7 +209,34 @@
     // Load the components
     includeHTML('header-placeholder', 'header.html');
     includeHTML('footer-placeholder', 'footer.html');
+
+
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    
+    const data = new FormData(form);
+    
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    });
+
+    if (response.ok) {
+        status.innerHTML = "✅ Message sent successfully!";
+        form.reset();
+    } else {
+        status.innerHTML = "❌ Oops! Something went wrong.";
+    }
+});
 </script>
+<script src="script.js"></script>
+
 </body>
 </html>
 

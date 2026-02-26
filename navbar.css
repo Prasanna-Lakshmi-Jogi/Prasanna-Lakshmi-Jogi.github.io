@@ -39,30 +39,65 @@
 }
 
 .nav-links a:hover {
-    color: #4285F4;
+    color: blue;
 }
 
 .nav-links a.active {
-    color: blue;
+    color: #4285F4;
     font-weight: bold;
+}
+
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 2px;
+    background: #1A1A1B;
+    transition: 0.3s ease;
 }
 
 /* Responsive Navbar */
 @media (max-width: 780px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem var(--page-inline);
-        gap: 10px;
-    }
+/* Hamburger visible on mobile */
+.hamburger {
+    display: flex;
+    position: relative;
+    z-index: 1002;
+}
 
-    .nav-links {
-        width: 100%;
-        gap: 10px 14px;
-        flex-wrap: wrap;
-    }
+/* Hide menu by default */
+.nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background: white;
 
-    .nav-links a {
-        margin-left: 0;
-    }
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 var(--page-inline);
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 1001;
+}
+
+/* Spacing for links */
+.nav-links a {
+    margin: 4px 0;
+}
+
+/* Show menu when active */
+.nav-links.active {
+    max-height: 200px;
+}
 }
