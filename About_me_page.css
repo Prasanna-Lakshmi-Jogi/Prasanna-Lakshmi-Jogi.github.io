@@ -95,6 +95,10 @@ body {
     margin-top: 0;
 }
 
+#ai-accelerated-workflow + #bridge-tag {
+    margin-top: 0;
+}
+
 /* --- 3-Column Layout --- */
 .main-container {
     display: grid;
@@ -321,7 +325,107 @@ background-color: #4b7f6a;
     max-width: none;
     margin: 0 auto;
     text-align: center;
-    background: #f3f4f6;
+    background: #ffffff;
+}
+
+/* --- AI ACCELERATED WORKFLOW --- */
+#ai-accelerated-workflow {
+    background-color: #f3f4f6;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+}
+
+.ai-workflow-header {
+    text-align: center;
+}
+
+.ai-workflow-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 14px;
+}
+
+.ai-workflow-intro {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.ai-tools,
+.ai-process,
+.ai-impact {
+    margin-top: 36px;
+}
+
+.ai-subtitle {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 18px;
+}
+
+.ai-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.ai-tool-card {
+    border: 1px solid #dfe4ea;
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.ai-tool-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2f3a46;
+    margin-bottom: 8px;
+}
+
+.ai-tool-description {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #666;
+}
+
+.ai-process-steps {
+    padding-left: 22px;
+    color: #333;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.ai-process-step {
+    margin-bottom: 10px;
+    line-height: 1.65;
+    font-size: 1rem;
+}
+
+.ai-impact-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    gap: 12px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.ai-impact-item {
+    background: #fafafa;
+    border-left: 4px solid #4b7f6a;
+    padding: 12px 14px;
+    border-radius: 6px;
+    color: #444;
+    line-height: 1.55;
+    font-size: 0.98rem;
+    text-align: left;
 }
 #bridge-tag h2 {
     font-size: 2.2rem; /* Bigger Title */
@@ -357,7 +461,11 @@ footer {
 #workflow-section > .workflow-title,
 #workflow-section > .steps-container,
 #bridge-tag > h2,
-#bridge-tag > p {
+#bridge-tag > p,
+#ai-accelerated-workflow > .ai-workflow-header,
+#ai-accelerated-workflow > .ai-tools,
+#ai-accelerated-workflow > .ai-process,
+#ai-accelerated-workflow > .ai-impact {
     width: min(var(--content-max), calc(100% - (var(--content-gutter) * 2)));
     margin-inline: auto;
 }
@@ -367,8 +475,32 @@ footer {
     max-width: 700px;
 }
 
+@media (max-width: 1100px) {
+    .ai-tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 780px) {
     #full-page > section {
         padding: 56px 0;
+    }
+
+    .ai-workflow-title {
+        font-size: 1.7rem;
+    }
+
+    .ai-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .ai-tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-tools,
+    .ai-process,
+    .ai-impact {
+        margin-top: 30px;
     }
 }
