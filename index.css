@@ -154,8 +154,16 @@ p {
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.projects-grid .card img:hover {
+    transform: translateY(-5px);
 }
 
 
