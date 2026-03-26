@@ -179,7 +179,7 @@ body {
 }
 
 .progress-fill {
-background-color: #4b7f6a;
+background-color: #4285F4;
     height: 100%;
     display: flex;
     align-items: center;
@@ -419,7 +419,7 @@ background-color: #4b7f6a;
 
 .ai-impact-item {
     background: #fafafa;
-    border-left: 4px solid #4b7f6a;
+    border-left: 4px solid #4285F4;
     padding: 12px 14px;
     border-radius: 6px;
     color: #444;
